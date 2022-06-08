@@ -1,23 +1,25 @@
+VERSION = master
+
 infra-arcana:
-	docker build -t $@ - < $@.Dockerfile
-	rm -rf ${PWD}/builds/$@
-	mkdir -p ${PWD}/builds/$@
-	docker run -v ${PWD}/builds/$@:/build/output:z $@
+	docker build --build-arg VERSION=${VERSION} -t $@ - < $@.Dockerfile
+	rm -rf ${PWD}/builds/$@-${VERSION}
+	mkdir -p ${PWD}/builds/$@-${VERSION}
+	docker run -v ${PWD}/builds/$@-${VERSION}:/build/output:z $@
 
 brogue:
-	docker build -t $@ - < $@.Dockerfile
-	rm -rf ${PWD}/builds/$@
-	mkdir -p ${PWD}/builds/$@
-	docker run -v ${PWD}/builds/$@:/build/output:z $@
+	docker build --build-arg VERSION=${VERSION} -t $@ - < $@.Dockerfile
+	rm -rf ${PWD}/builds/$@-${VERSION}
+	mkdir -p ${PWD}/builds/$@-${VERSION}
+	docker run -v ${PWD}/builds/$@-${VERSION}:/build/output:z $@
 
 crawl:
-	docker build -t $@ - < $@.Dockerfile
-	rm -rf ${PWD}/builds/$@
-	mkdir -p ${PWD}/builds/$@
-	docker run -v ${PWD}/builds/$@:/build/output:z $@
+	docker build --build-arg VERSION=${VERSION} -t $@ - < $@.Dockerfile
+	rm -rf ${PWD}/builds/$@-${VERSION}
+	mkdir -p ${PWD}/builds/$@-${VERSION}
+	docker run -v ${PWD}/builds/$@-${VERSION}:/build/output:z $@
 
 bcrawl:
-	docker build -t $@ - < $@.Dockerfile
-	rm -rf ${PWD}/builds/$@
-	mkdir -p ${PWD}/builds/$@
-	docker run -v ${PWD}/builds/$@:/build/output:z $@
+	docker build --build-arg VERSION=${VERSION} -t $@ - < $@.Dockerfile
+	rm -rf ${PWD}/builds/$@-${VERSION}
+	mkdir -p ${PWD}/builds/$@-${VERSION}
+	docker run -v ${PWD}/builds/$@-${VERSION}:/build/output:z $@
