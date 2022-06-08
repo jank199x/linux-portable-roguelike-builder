@@ -13,8 +13,8 @@ USER builder
 RUN mkdir -p /build/source
 RUN mkdir -p /build/output
 
-ARG VERSION=v21.0.1
-ARG REPO=https://gitlab.com/martin-tornqvist/ia.git
+ARG VERSION
+ARG REPO
 
 WORKDIR /build/source
 RUN git clone ${REPO} .

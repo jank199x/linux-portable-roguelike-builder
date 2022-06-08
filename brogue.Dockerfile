@@ -13,8 +13,8 @@ USER builder
 RUN mkdir -p /build/source
 RUN mkdir -p /build/output
 
-ARG VERSION=v1.11.1
-ARG REPO=https://github.com/tmewett/BrogueCE.git
+ARG VERSION
+ARG REPO
 
 WORKDIR /build/source
 RUN git clone ${REPO} .

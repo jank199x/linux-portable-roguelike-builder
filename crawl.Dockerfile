@@ -19,8 +19,8 @@ USER builder
 RUN mkdir -p /build/source
 RUN mkdir -p /build/output
 
-ARG REPO=https://github.com/crawl/crawl.git
-ARG VERSION=0.28.0
+ARG REPO
+ARG VERSION
 
 WORKDIR /build/source
 RUN git clone ${REPO} .
