@@ -1,5 +1,6 @@
 FROM ubuntu:20.04
 
+ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update -y \
     && apt-get install -y git build-essential cmake \
     libsdl2-2.0-0 libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev
@@ -12,8 +13,8 @@ USER builder
 RUN mkdir -p /build/source
 RUN mkdir -p /build/output
 
-ENV VERSION v21.0.1
-ENV REPO https://gitlab.com/martin-tornqvist/ia.git
+ARG VERSION=v21.0.1
+ARG REPO=https://gitlab.com/martin-tornqvist/ia.git
 
 WORKDIR /build/source
 RUN git clone ${REPO} .
